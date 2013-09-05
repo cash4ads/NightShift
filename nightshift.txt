@@ -1,0 +1,7 @@
+"psw"
+{
+	"base"			"base"
+	"title"			"NightShift"
+	"maps"			"^ns_"
+	"menusystem"	"1"
+}
