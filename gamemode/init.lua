@@ -3,3 +3,11 @@
 AddCSLuaFile("cl_init.lua")
 AddCSLuaFile("shared.lua")
 include("shared.lua")
+//
+util.AddNetworkString("ChangePlayerModel")
+ 
+net.Receive("ChangePlayerModel", function(len, ply)
+	if IsValid(ply) and ply:IsPlayer() then
+		ply:SetModel("models/player/breen.mdl")
+	end
+end)
