@@ -4,10 +4,14 @@ AddCSLuaFile("cl_init.lua")
 AddCSLuaFile("shared.lua")
 include("shared.lua")
 //
-util.AddNetworkString("ChangePlayerModel")
- 
-net.Receive("ChangePlayerModel", function(len, ply)
-	if IsValid(ply) and ply:IsPlayer() then
-		ply:SetModel("models/player/breen.mdl")
+
+function GameTimer()
+	timer.Create("GameLength", 600, 1, PrintGameOver)
+end
+hook.Add("GameEnd", "Sets game length", GameTimer)
+
+function PrintGameOver()
+	for k, ply in pairs(player.GetAll()) do
+		ply:ChatPrint("The game has ended.")
 	end
-end)
+end
