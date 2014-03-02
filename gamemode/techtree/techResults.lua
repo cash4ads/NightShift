@@ -1,33 +1,33 @@
 
 --remember: don't leave values! They are placeholders!
 --look up HL2 hammer units!
-function upgradeRunOne()
+function upgradeRunOne(teamIndex)
   if sciencePoints >= 250
-    upgradeRun(125)
+    upgradeRun(125, teamIndex)
     sciencePoints = sciencePoints - 250
     runOne = 1
   end
 end
 
-function upgradeRunTwo()
+function upgradeRunTwo(teamIndex)
   if sciencePoints >= 500
-    upgradeRun(150)
+    upgradeRun(150, teamIndex)
     sciencePoints = sciencePoints - 500
     runTwo = 1
   end
 end
 
-function upgradeJumpOne()
+function upgradeJumpOne(teamIndex)
   if sciencePoints >= 250
-    upgradeJump(125)
+    upgradeJump(125, teamIndex)
     sciencePoints = sciencePoints - 250
     jumpOne = 1
   end
 end
 
-function upgradeJumpTwo()
+function upgradeJumpTwo(teamIndex)
   if sciencePoints >= 500
-    upgradeJump(150)
+    upgradeJump(150, teamIndex)
     sciencePoints = sciencePoints - 500
     jumpTwo = 1
   end
@@ -41,8 +41,14 @@ function upgradeStealth()
 end
 
 --returns table value
--- function upgradeRun( upgade )
---   team.GetPlayers( number teamIndex )
--- end
+function upgradeRun(upgrade, teamIndex)
+  for _,ply in pairs(team.GetPlayers(teamIndex)) do
+    ply:SetMaxHealth(upgrade)
+  end
+end
 
---repeat for jump, etc.
+function upgradeJump(upgrade, teamIndex)
+  for _,ply in pairs(team.GetPlayers(teamIndex)) do
+    ply:SetJumpPower(upgrade)
+  end
+end
