@@ -45,4 +45,26 @@ function PrintSetupEnd()
 	for k, ply in pairs(player.GetAll()) do
 		ply:ChatPrint("Setup has ended.")
 	end
+
+function assignOrders( orders )
+
+switch[1] = "ENT1"
+switch[2] = "ENT2"
+switch[3] = "ENT3"
+switch[4] = "ENT4"
+switch[5] = "ENT5"
+switch[6] = "ENT6"
+switch[7] = "ENT7"
+switch[8] = "ENT8"
+switch[9] = "ENT9"
+switch[10] = "ENT10"
+switch[11] = "ENT11"
+switch[12] = "ENT12"
+	 
+
+  	if switch[orders] then 
+    	
+  	end
+end
+timer.Create("OrderAssignment", 90, 0, assignOrders)
 end
