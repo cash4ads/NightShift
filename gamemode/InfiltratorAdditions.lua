@@ -17,4 +17,4 @@ function KeyPressed(P,key)
 	end 
 end
 
-hook.Add("KeyPressed","KeyPressedHook",KeyPressed)
+hook.Add("KeyPress","KeyPressHook",KeyPress)
