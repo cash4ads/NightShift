@@ -12,7 +12,7 @@ function disguise()
 	end
 end
 function KeyPressed(P,key)
-	if(P:GetName == IN_ATTACK2) then
+	if(key == IN_ATTACK2) then
 		disguise()
 	end 
 end
