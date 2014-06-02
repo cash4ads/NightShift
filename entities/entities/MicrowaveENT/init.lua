@@ -19,11 +19,11 @@ end
  
 local prevPlayerClass
 function ENT:Use( activator, caller )
-    if (activator:isPlayer) then
+    if (activator:IsPlayer()) then
 	if(activator:GetClass() ~= prevPlayerClass) then
-		if(activator:GetClass() == "snake.lua" then --if the user is an Infiltrator
+		if(activator:GetClass() == "player_snake" then --if the user is an Infiltrator
 			if (isValid("Infiltrator control") then
-				timer:unPause("Infiltrator control")
+				timer:UnPause("Infiltrator control")
 			else
 	 			timer:Create("Infiltrator control",1,250, endGame ) --ends the game
 			end 
