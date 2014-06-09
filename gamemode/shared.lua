@@ -3,7 +3,7 @@ GM.Author  = "cash4ads"
 GM.Email   = "contact@cash4ads.biz"
 GM.Website = "cash4ads.biz"
 
-DeriveGamemode("base") -- if we wanted the spawn menu and toolgun, we'd derive from sandbox
+DeriveGamemode("sandbox") 
 
 --[[ Teams! A few things to note:
 TEAM_NAME is the team global. We can use this to refer to each team in the code.

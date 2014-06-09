@@ -23,19 +23,7 @@ function ENT:KeyValue( key, value )
 end
 
 function ENT:Think()
-	if (leftArea = true) then
-		funcTime = funcTime - 1;
+	if leftArea then
+		funcTime = funcTime - 1
 	end
-end
-for k, v in pairs(player.GetAll()) do
-	v:SetNWInt('orders', math.random(12))
-end
-
---calls 'orders' variable from each player
-for k, v in pairs(player.GetAll()) do
-	v:GetNWInt('orders')
-	assignOrders(orders)
-
-
-	
 end

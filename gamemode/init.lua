@@ -3,6 +3,7 @@
 AddCSLuaFile("cl_init.lua")
 AddCSLuaFile("shared.lua")
 include("shared.lua")
+
 //
 
 function GameTimer()
@@ -45,7 +46,7 @@ function PrintSetupEnd()
 	for k, ply in pairs(player.GetAll()) do
 		ply:ChatPrint("Setup has ended.")
 	end
-	
+end
 --Infiltrator disguise method
 function disguise()
 	local ply = LocalPlayer()
@@ -54,7 +55,7 @@ function disguise()
 	if traceRes.HitNonWorld then
 		local target = traceRes.Entity
 		if target:IsPlayer() then
-			local targetModel = target:GetModel
+			local targetModel = target:GetModel()
 			ply:SetModel(targetModel)
 		end
 	end
@@ -67,13 +68,8 @@ end
 
 hook.Add("KeyPress","KeyPressHook",KeyPress)
 
-function assignOrders( orders )
-
-	if math.abs(orders - 6) < 6 then	
-  		if switch["ENT"...orders] then 
-    		
-  		end
-	end 
-end
-timer.Create("OrderAssignment", 90, 0, assignOrders)
+function GM:PlayerInitialSpawn(ply)
+	ply:SetNWString('class', 'player_snake')
+	orders = math.random(12)
+	ply:SetNWInt('orders', orders)
 end
